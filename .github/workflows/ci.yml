@@ -8,7 +8,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           token: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
-      - run: git config --global user.name 'AboutBits Tech'
-      - run: git config --global user.email 'tech@aboutbits.it'
+      - run: git config --global user.name 'Filip-Kaczmarek'
+      - run: git config --global user.email 'f.7.kaczmarek@wp.pl'
       - run: npm version patch -m "[RELEASE] %s"
       - run: git push
