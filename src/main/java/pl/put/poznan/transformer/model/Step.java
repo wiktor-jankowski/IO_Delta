@@ -2,8 +2,10 @@ package pl.put.poznan.transformer.model;
 
 
 import java.util.List;
+import pl.put.poznan.transformer.logic.VisitorForCounting;
 
-//Basic implementetion of steps of scenario
+
+//Basic implementation of steps of scenario
 
 public class Step {
     private Integer numberOfStep;
@@ -14,7 +16,13 @@ public class Step {
 
     public Step() { }
 
-
+    public void acceptCounting(VisitorForCounting visitor)
+    {
+        visitor.count(this);
+        if(!this.subStep.isEmpty())
+            for(Step step : subStep)
+                step.acceptCounting(visitor);
+    }
 
     // getters and setters section
     public Integer getStepNum() {

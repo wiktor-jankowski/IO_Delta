@@ -1,6 +1,8 @@
 package pl.put.poznan.transformer.model;
 
 import java.util.List;
+import pl.put.poznan.transformer.logic.VisitorForCounting;
+
 
 public class ScenarioModel {
     private String titleOfScenario;
@@ -9,6 +11,14 @@ public class ScenarioModel {
     private List<Step> steps;
 
     public ScenarioModel() { }
+
+    public void acceptCounting(VisitorForCounting visitor)
+    {
+        for(Step step : steps)
+        {
+            step.acceptCounting(visitor);
+        }
+    }
 
     public String getTitle() {
         return titleOfScenario;
