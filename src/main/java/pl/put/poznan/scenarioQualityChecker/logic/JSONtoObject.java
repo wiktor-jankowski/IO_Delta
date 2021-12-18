@@ -1,8 +1,8 @@
-package pl.put.poznan.transformer.logic;
+package pl.put.poznan.scenarioQualityChecker.logic;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
-import pl.put.poznan.transformer.model.ScenarioModel;
+import pl.put.poznan.scenarioQualityChecker.model.ScenarioModel;
 
 /**
  * JSONtoObject class parses JSON to Scenario object.

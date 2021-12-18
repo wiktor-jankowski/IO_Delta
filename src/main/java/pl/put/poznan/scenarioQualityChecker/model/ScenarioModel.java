@@ -1,7 +1,7 @@
-package pl.put.poznan.transformer.model;
+package pl.put.poznan.scenarioQualityChecker.model;
 
 import java.util.List;
-import pl.put.poznan.transformer.logic.VisitorForCounting;
+import pl.put.poznan.scenarioQualityChecker.logic.VisitorForCounting;
 
 
 public class ScenarioModel {

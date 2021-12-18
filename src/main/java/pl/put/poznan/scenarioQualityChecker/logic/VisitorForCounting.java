@@ -1,6 +1,6 @@
-package pl.put.poznan.transformer.logic;
+package pl.put.poznan.scenarioQualityChecker.logic;
 
-import pl.put.poznan.transformer.model.Step;
+import pl.put.poznan.scenarioQualityChecker.model.Step;
 
 //visitor Class for counting business value procedures
 abstract public class VisitorForCounting {
