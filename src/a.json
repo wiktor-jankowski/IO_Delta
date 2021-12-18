@@ -1,9 +1,7 @@
 {
-  "titleOfScenario": "Rejestracja do lekarza rodzinnego",
+  "titleOfScenario": "Test",
   "actors": [
-    "pacjent",
-    "lekarz",
-    "pielęgniarka"
+    "klient"
   ],
   "systemActors": [
     "system"
@@ -11,116 +9,40 @@
   "steps": [
     {
       "numberOfStep": 1,
-      "actor": "pacjent",
+      "actor": "klient",
       "rule": [
-        "Pacjent mówi dzień dobry wszystkim w poczekalni"
+        "Klient robi a"
       ],
       "subStep": [],
       "deepPath": []
     },
     {
       "numberOfStep": 2,
-      "actor": "pacjent",
-      "rule": [
-        "Pacjent podaje swoje imię i nazwisko w recepcji"
-      ],
-      "subStep": [],
-      "deepPath": []
-    },
-    {
-      "numberOfStep": 3,
-      "actor": "pielęgniarka",
-      "rule": [
-        "Pielęgniarka wpisuje dane pacjenta do systemu"
-      ],
-      "subStep": [],
-      "deepPath": []
-    },
-    {
-      "numberOfStep": 4,
       "actor": "",
       "rule": [
         "IF",
-        "W systemie znajduje się karta pacjenta"
+        "Klient robi 2"
       ],
       "subStep": [
         {
           "numberOfStep": 1,
+          "actor": "klient",
+          "rule": [
+            "Klient sie smieje"
+          ],
+          "subStep": [],
+          "deepPath": []
+        },
+        {
+          "numberOfStep": 2,
           "actor": "system",
           "rule": [
-            "System drukuje historię chorób"
-          ],
-          "subStep": [],
-          "deepPath": []
-        },
-        {
-          "numberOfStep": 2,
-          "actor": "pielęgniarka",
-          "rule": [
-            "Pielęgniarka umieszcza dokumenty w teczce i wręcza pacjentowi"
+            "System czyta"
           ],
           "subStep": [],
           "deepPath": []
         }
       ],
-      "deepPath": []
-    },
-    {
-      "numberOfStep": 5,
-      "actor": "",
-      "rule": [
-        "IF",
-        "Pacjent nie figuruje w systemie"
-      ],
-      "subStep": [
-        {
-          "numberOfStep": 1,
-          "actor": "pacjent",
-          "rule": [
-            "Pacjent pokazuje pielęgniarce swój dowód osobisty"
-          ],
-          "subStep": [],
-          "deepPath": []
-        },
-        {
-          "numberOfStep": 2,
-          "actor": "",
-          "rule": [
-            "FOR EACH",
-            "pole w formularzu"
-          ],
-          "subStep": [
-            {
-              "numberOfStep": 1,
-              "actor": "pielęgniarka",
-              "rule": [
-                "Wypełnia danymi pacjenta"
-              ],
-              "subStep": [],
-              "deepPath": []
-            }
-          ],
-          "deepPath": []
-        }
-      ],
-      "deepPath": []
-    },
-    {
-      "numberOfStep": 6,
-      "actor": "pacjent",
-      "rule": [
-        "Pacjent siada w poczekalni"
-      ],
-      "subStep": [],
-      "deepPath": []
-    },
-    {
-      "numberOfStep": 7,
-      "actor": "lekarz",
-      "rule": [
-        "Zaprasza pacjenta do gabinetu"
-      ],
-      "subStep": [],
       "deepPath": []
     }
   ]

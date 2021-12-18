@@ -12,15 +12,7 @@ public class ScenarioModel {
     private ArrayList<String> systemActors;
     private ArrayList<Step> steps;
 
-    public ScenarioModel(String title, ArrayList<String> act, ArrayList<String> syst, ArrayList<Step> step) {
-        titleOfScenario = title;
-        actors = act;
-        systemActors = syst;
-        steps = step;
-    }
-
-    public ScenarioModel() {
-    }
+    public ScenarioModel() {}
 
     public void acceptCounting(VisitorForCounting visitor)
     {
@@ -30,32 +22,32 @@ public class ScenarioModel {
         }
     }
 
-    public String getTitle() {
+    public String getTitleOfScenario() {
         return titleOfScenario;
+    }
+
+    public void setTitleOfScenario(String titleOfScenario) {
+        this.titleOfScenario = titleOfScenario;
     }
 
     public ArrayList<String> getActors() {
         return actors;
     }
 
-    public ArrayList<String> getSysactors() {
-        return systemActors;
-    }
-
-    public ArrayList<Step> getSteps() {
-        return steps;
-    }
-
-    public void setTitle(String title) {
-        this.titleOfScenario = title;
-    }
-
     public void setActors(ArrayList<String> actors) {
         this.actors = actors;
     }
 
-    public void setSysactors(ArrayList<String> sysactors) {
-        this.systemActors = sysactors;
+    public ArrayList<String> getSystemActors() {
+        return systemActors;
+    }
+
+    public void setSystemActors(ArrayList<String> systemActors) {
+        this.systemActors = systemActors;
+    }
+
+    public ArrayList<Step> getSteps() {
+        return steps;
     }
 
     public void setSteps(ArrayList<Step> steps) {

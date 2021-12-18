@@ -14,20 +14,7 @@ public class Step {
     private ArrayList<Step> subStep;
     private ArrayList<Integer> deepPath;
 
-    public Step(Integer number,
-            String act,
-            ArrayList<String> rul,
-            ArrayList<Step> sub,
-            ArrayList<Integer> deep) {
-        numberOfStep = number;
-        actor = act;
-        rule = rul;
-        subStep = sub;
-        deepPath = deep;
-    }
-
-    public Step() {
-    }
+    public Step() {}
 
     public void acceptCounting(VisitorForCounting visitor)
     {
@@ -37,40 +24,43 @@ public class Step {
                 step.acceptCounting(visitor);
     }
 
-    // getters and setters section
-    public Integer getStepNum() {
+    public Integer getNumberOfStep() {
         return numberOfStep;
     }
 
-    public void setStepNum(Integer stepNum) {
-        this.numberOfStep = stepNum;
+    public void setNumberOfStep(Integer numberOfStep) {
+        this.numberOfStep = numberOfStep;
     }
 
-    public String getActor() { return actor; }
+    public String getActor() {
+        return actor;
+    }
 
-    public void setActor(String actor) { this.actor = actor; }
+    public void setActor(String actor) {
+        this.actor = actor;
+    }
 
-    public ArrayList<String> getContent() {
+    public ArrayList<String> getRule() {
         return rule;
     }
 
-    public void setContent(ArrayList<String> content) {
-        this.rule = content;
+    public void setRule(ArrayList<String> rule) {
+        this.rule = rule;
     }
 
-    public ArrayList<Step> getSubsteps() {
+    public ArrayList<Step> getSubStep() {
         return subStep;
     }
 
-    public void setSubsteps(ArrayList<Step> substeps) {
-        this.subStep = substeps;
+    public void setSubStep(ArrayList<Step> subStep) {
+        this.subStep = subStep;
     }
 
-    public ArrayList<Integer> getReturnPath() {
+    public ArrayList<Integer> getDeepPath() {
         return deepPath;
     }
 
-    public void setReturnPath(ArrayList<Integer> returnPath) {
-        this.deepPath = returnPath;
+    public void setDeepPath(ArrayList<Integer> deepPath) {
+        this.deepPath = deepPath;
     }
 }

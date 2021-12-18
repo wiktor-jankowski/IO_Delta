@@ -15,9 +15,13 @@ public class ScenarioQualityControler {
     @PostMapping("/countKeyWords")
     public String countingKeyWords(@RequestBody ScenarioModel scenarioModel){
         VisitorForCounting visitor = new CountingKeyWords();
+
         scenarioModel.acceptCounting(visitor);
+
         int result = ((CountingKeyWords) visitor).getStepsNumber();
+
         visitor.afterCounting();
+
         return String.valueOf(result);
     }
 }
