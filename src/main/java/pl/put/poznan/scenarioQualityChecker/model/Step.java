@@ -14,7 +14,17 @@ public class Step {
     private List<Step> subStep;
     private List<Integer> deepPath;
 
-    public Step() { }
+    public Step(Integer number,
+            String act,
+            List<String> rul,
+            List<Step> sub,
+            List<Integer> deep) {
+        numberOfStep = number;
+        actor = act;
+        rule = rul;
+        subStep = sub;
+        deepPath = deep;
+    }
 
     public void acceptCounting(VisitorForCounting visitor)
     {

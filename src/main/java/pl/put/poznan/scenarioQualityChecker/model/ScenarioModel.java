@@ -10,7 +10,12 @@ public class ScenarioModel {
     private List<String> systemActors;
     private List<Step> steps;
 
-    public ScenarioModel() { }
+    public ScenarioModel(String title, List<String> act, List<String> syst, List<Step> step) {
+        titleOfScenario = title;
+        actors = act;
+        systemActors = syst;
+        steps = step;
+    }
 
     public void acceptCounting(VisitorForCounting visitor)
     {
