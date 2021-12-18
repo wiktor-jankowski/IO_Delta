@@ -10,6 +10,7 @@ import pl.put.poznan.scenarioQualityChecker.logic.CountingKeyWords;
 import pl.put.poznan.scenarioQualityChecker.model.ScenarioModel;
 import pl.put.poznan.scenarioQualityChecker.model.Step;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -20,16 +21,19 @@ public class ScenarioQualityApplication {
     public static void main(String[] args) {
         SpringApplication.run(ScenarioQualityApplication.class, args);
 
-        List<String> list = Arrays.asList("one");
-        List<String> syslist = Arrays.asList("lol");
-        List<String> stepList = Arrays.asList("IF",
-                "W systemie znajduje się karta pacjenta");
-        List<Step> chuj = null;
-        List<Integer> chuj2 = null;
+        ArrayList<String> list = new ArrayList<String>();
+        list.add("One");
+        ArrayList<String> syslist = new ArrayList<>();
+        syslist.add("Sys");
+        ArrayList<String> stepList = new ArrayList<>();
+        stepList.add("IF");
+        stepList.add( "W systemie znajduje się karta pacjenta");
+        ArrayList<Step> chuj = new ArrayList<Step>();
+        ArrayList<Integer> chuj2 = new ArrayList<Integer>();
 
 
 
-        Step step1 = null;
+        Step step1 = new Step();
         step1.setStepNum(1);
         step1.setActor("one");
         step1.setContent(stepList);
@@ -37,9 +41,10 @@ public class ScenarioQualityApplication {
         step1.setReturnPath(chuj2);
 
 
-        List<Step> chuj3 = Arrays.asList(step1);
+        ArrayList<Step> chuj3 = new ArrayList<>();
+        chuj3.add(step1);
 
-        ScenarioModel scenarioModel = null;
+        ScenarioModel scenarioModel = new ScenarioModel();
         scenarioModel.setTitle("test");
         scenarioModel.setActors(list);
         scenarioModel.setSysactors(syslist);

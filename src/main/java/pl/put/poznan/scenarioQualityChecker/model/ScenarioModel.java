@@ -1,20 +1,25 @@
 package pl.put.poznan.scenarioQualityChecker.model;
 
+import java.util.ArrayList;
 import java.util.List;
 import pl.put.poznan.scenarioQualityChecker.logic.VisitorForCounting;
 
 
+
 public class ScenarioModel {
     private String titleOfScenario;
-    private List<String> actors;
-    private List<String> systemActors;
-    private List<Step> steps;
+    private ArrayList<String> actors;
+    private ArrayList<String> systemActors;
+    private ArrayList<Step> steps;
 
-    public ScenarioModel(String title, List<String> act, List<String> syst, List<Step> step) {
+    public ScenarioModel(String title, ArrayList<String> act, ArrayList<String> syst, ArrayList<Step> step) {
         titleOfScenario = title;
         actors = act;
         systemActors = syst;
         steps = step;
+    }
+
+    public ScenarioModel() {
     }
 
     public void acceptCounting(VisitorForCounting visitor)
@@ -29,15 +34,15 @@ public class ScenarioModel {
         return titleOfScenario;
     }
 
-    public List<String> getActors() {
+    public ArrayList<String> getActors() {
         return actors;
     }
 
-    public List<String> getSysactors() {
+    public ArrayList<String> getSysactors() {
         return systemActors;
     }
 
-    public List<Step> getSteps() {
+    public ArrayList<Step> getSteps() {
         return steps;
     }
 
@@ -45,15 +50,15 @@ public class ScenarioModel {
         this.titleOfScenario = title;
     }
 
-    public void setActors(List<String> actors) {
+    public void setActors(ArrayList<String> actors) {
         this.actors = actors;
     }
 
-    public void setSysactors(List<String> sysactors) {
+    public void setSysactors(ArrayList<String> sysactors) {
         this.systemActors = sysactors;
     }
 
-    public void setSteps(List<Step> steps) {
+    public void setSteps(ArrayList<Step> steps) {
         this.steps = steps;
     }
 }

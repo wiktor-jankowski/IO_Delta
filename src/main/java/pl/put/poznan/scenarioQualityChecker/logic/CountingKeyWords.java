@@ -2,6 +2,7 @@ package pl.put.poznan.scenarioQualityChecker.logic;
 
 import pl.put.poznan.scenarioQualityChecker.model.Step;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class CountingKeyWords extends VisitorForCounting{
@@ -25,7 +26,7 @@ public class CountingKeyWords extends VisitorForCounting{
 
         private static boolean isKeyword(Step step)
         {
-            List<String> content = step.getContent();
+            ArrayList<String> content = step.getContent();
             return content.get(0).equals("IF") || content.get(0).equals("FOR EACH") || content.get(0).equals("ELSE");
         }
 }

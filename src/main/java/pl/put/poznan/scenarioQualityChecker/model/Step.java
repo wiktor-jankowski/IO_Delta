@@ -1,7 +1,7 @@
 package pl.put.poznan.scenarioQualityChecker.model;
 
 
-import java.util.List;
+import java.util.ArrayList;
 import pl.put.poznan.scenarioQualityChecker.logic.VisitorForCounting;
 
 
@@ -10,20 +10,23 @@ import pl.put.poznan.scenarioQualityChecker.logic.VisitorForCounting;
 public class Step {
     private Integer numberOfStep;
     private String actor;
-    private List<String> rule;
-    private List<Step> subStep;
-    private List<Integer> deepPath;
+    private ArrayList<String> rule;
+    private ArrayList<Step> subStep;
+    private ArrayList<Integer> deepPath;
 
     public Step(Integer number,
             String act,
-            List<String> rul,
-            List<Step> sub,
-            List<Integer> deep) {
+            ArrayList<String> rul,
+            ArrayList<Step> sub,
+            ArrayList<Integer> deep) {
         numberOfStep = number;
         actor = act;
         rule = rul;
         subStep = sub;
         deepPath = deep;
+    }
+
+    public Step() {
     }
 
     public void acceptCounting(VisitorForCounting visitor)
@@ -47,27 +50,27 @@ public class Step {
 
     public void setActor(String actor) { this.actor = actor; }
 
-    public List<String> getContent() {
+    public ArrayList<String> getContent() {
         return rule;
     }
 
-    public void setContent(List<String> content) {
+    public void setContent(ArrayList<String> content) {
         this.rule = content;
     }
 
-    public List<Step> getSubsteps() {
+    public ArrayList<Step> getSubsteps() {
         return subStep;
     }
 
-    public void setSubsteps(List<Step> substeps) {
+    public void setSubsteps(ArrayList<Step> substeps) {
         this.subStep = substeps;
     }
 
-    public List<Integer> getReturnPath() {
+    public ArrayList<Integer> getReturnPath() {
         return deepPath;
     }
 
-    public void setReturnPath(List<Integer> returnPath) {
+    public void setReturnPath(ArrayList<Integer> returnPath) {
         this.deepPath = returnPath;
     }
 }
