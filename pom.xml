@@ -18,7 +18,10 @@
 
 	<properties>
         <java.version>11</java.version>
+        <start-class>pl.put.poznan.scenarioQualityChecker.app.ScenarioQualityApplication</start-class>
     </properties>
+
+
 
     
     <dependencies>
