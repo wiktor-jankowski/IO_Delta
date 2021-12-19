@@ -1,9 +1,9 @@
 package pl.put.poznan.scenarioQualityChecker.model;
 
 import java.util.ArrayList;
-import java.util.List;
 import pl.put.poznan.scenarioQualityChecker.logic.VisitorForCounting;
-
+import pl.put.poznan.scenarioQualityChecker.logic.VisitorForDisplaying;
+import pl.put.poznan.scenarioQualityChecker.logic.DisplayingScenario;
 
 
 public class ScenarioModel {
@@ -19,6 +19,16 @@ public class ScenarioModel {
         for(Step step : steps)
         {
             step.acceptCounting(visitor);
+        }
+    }
+
+    public void acceptDisplaying(VisitorForDisplaying visitor)
+    {
+        if(visitor instanceof DisplayingScenario)
+            ((DisplayingScenario)visitor).setScenarioText(this.titleOfScenario + "</br></br>");
+        for(Step step : steps)
+        {
+            step.acceptDisplaying(visitor, "", 0);
         }
     }
 
