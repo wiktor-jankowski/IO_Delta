@@ -3,7 +3,7 @@ package pl.put.poznan.scenarioQualityChecker.model;
 
 import java.util.ArrayList;
 import pl.put.poznan.scenarioQualityChecker.logic.VisitorForCounting;
-
+import pl.put.poznan.scenarioQualityChecker.logic.VisitorForDisplaying;
 
 //Basic implementation of steps of scenario
 
@@ -22,6 +22,17 @@ public class Step {
         if(!this.subStep.isEmpty())
             for(Step step : subStep)
                 step.acceptCounting(visitor);
+    }
+
+    public void acceptDisplaying(VisitorForDisplaying visitor, String num, int level)
+    {
+        num += this.numberOfStep + ".";
+        visitor.display(this, num, level);
+        if(!this.subStep.isEmpty()) {
+            level++;
+            for (Step step : subStep)
+                step.acceptDisplaying(visitor, num, level);
+        }
     }
 
     public Integer getNumberOfStep() {
