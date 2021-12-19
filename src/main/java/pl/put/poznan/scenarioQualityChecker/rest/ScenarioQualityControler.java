@@ -33,5 +33,13 @@ public class ScenarioQualityControler {
 
         return ((DisplayingScenario) visitor).getScenarioText();
     }
+    @PostMapping("/displayDepthLevel/{level}")
+    public String displayDepthLevel(@RequestBody ScenarioModel scenarioModel, @PathVariable Integer level){
+        VisitorForDisplaying visitor = new DisplayingDepthLevel(level);
+
+        scenarioModel.acceptDisplaying(visitor);
+
+        return ((DisplayingDepthLevel) visitor).getScenarioText();
+    }
 
 }
