@@ -54,5 +54,25 @@ public class ScenarioQualityControler {
 
         return ((DisplayingDepthLevel) visitor).getScenarioText();
     }
+    @PostMapping("/countStepsWithoutActor")
+    public String countingStepsWithoutActor(@RequestBody ScenarioModel scenarioModel){
+        VisitorForCounting visitor = new CountingStepsWithoutActor();
+
+        scenarioModel.acceptCounting(visitor);
+
+        int result = ((CountingStepsWithoutActor) visitor).getStepsNumber();
+
+        visitor.afterCounting();
+
+        return String.valueOf(result);
+    }
+
+    @PostMapping("/displayingStepsWithoutActor")
+    public String displayingStepsWithoutActor(@RequestBody ScenarioModel scenarioModel){
+        VisitorForDisplaying visitor = new DisplayingStepsWithoutActors();
+        scenarioModel.acceptDisplaying(visitor);
+
+        return ((DisplayingStepsWithoutActors) visitor).getScenarioText();
+    }
 
 }
