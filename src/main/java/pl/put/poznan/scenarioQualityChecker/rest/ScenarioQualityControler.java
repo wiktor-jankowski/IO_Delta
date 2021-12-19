@@ -23,6 +23,15 @@ public class ScenarioQualityControler {
 
         return String.valueOf(result);
     }
+
+
+    @PostMapping("/displayScenario")
+    public String displayScenario(@RequestBody ScenarioModel scenarioModel){
+        VisitorForDisplaying visitor = new DisplayingScenario();
+
+        scenarioModel.acceptDisplaying(visitor);
+
+        return ((DisplayingScenario) visitor).getScenarioText();
+    }
+
 }
-
-
