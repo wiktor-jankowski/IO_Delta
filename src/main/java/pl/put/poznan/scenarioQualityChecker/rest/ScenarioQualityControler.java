@@ -11,6 +11,19 @@ import org.springframework.web.bind.annotation.PathVariable;
 @RestController
 public class ScenarioQualityControler {
 
+    @PostMapping("/countAllSteps")
+    public String countingAllSteps(@RequestBody ScenarioModel scenarioModel){
+        VisitorForCounting visitor = new CountingAllSteps();
+
+        scenarioModel.acceptCounting(visitor);
+
+        int result = ((CountingAllSteps) visitor).getStepsNumber();
+
+        visitor.afterCounting();
+
+        return String.valueOf(result);
+    }
+
     @PostMapping("/countKeyWords")
     public String countingKeyWords(@RequestBody ScenarioModel scenarioModel){
         VisitorForCounting visitor = new CountingKeyWords();
