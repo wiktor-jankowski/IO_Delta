@@ -2,8 +2,7 @@ package pl.put.poznan.scenarioQualityChecker.rest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
-import pl.put.poznan.scenarioQualityChecker.logic.CountingKeyWords;
-import pl.put.poznan.scenarioQualityChecker.logic.VisitorForCounting;
+import pl.put.poznan.scenarioQualityChecker.logic.*;
 import pl.put.poznan.scenarioQualityChecker.model.ScenarioModel;
 import org.springframework.web.bind.annotation.PathVariable;
 
