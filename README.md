@@ -27,3 +27,21 @@ Aktor systemowy: System
 • Bibliotekarz zatwierdza dodanie książki.
 • System informuje o poprawnym dodaniu książki.
 "
+
+
+Odpalanie programu w PowerShellu: 
+```
+mvn clean sprint-boot:run
+```
+
+Generowanie samych javaDoców:
+```
+mvn javadoc:javadoc 
+//pliki znajdują się w: IO_DELTA/target/apidocs 
+```
+
+Budowanie paczki .jar z javaDocami 
+```
+mvn clean package
+//pliki znajdują się w: IO_DELTA/target/site/apidocs 
+'''
