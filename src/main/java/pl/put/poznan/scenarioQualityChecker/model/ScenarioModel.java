@@ -1,10 +1,16 @@
 package pl.put.poznan.scenarioQualityChecker.model;
 
 import java.util.ArrayList;
-import java.util.List;
+
 import pl.put.poznan.scenarioQualityChecker.logic.VisitorForCounting;
+import pl.put.poznan.scenarioQualityChecker.logic.VisitorForDisplaying;
+import pl.put.poznan.scenarioQualityChecker.logic.DisplayingScenario;
 
-
+/**
+ * Class which implements scenario object read from .JSON file
+ *
+ * @author Radoslaw Dudek
+ */
 
 public class ScenarioModel {
     private String titleOfScenario;
@@ -12,50 +18,60 @@ public class ScenarioModel {
     private ArrayList<String> systemActors;
     private ArrayList<Step> steps;
 
-    public ScenarioModel(String title, ArrayList<String> act, ArrayList<String> syst, ArrayList<Step> step) {
-        titleOfScenario = title;
-        actors = act;
-        systemActors = syst;
-        steps = step;
-    }
-
     public ScenarioModel() {
     }
 
-    public void acceptCounting(VisitorForCounting visitor)
-    {
-        for(Step step : steps)
-        {
+    /**
+     * Accept counting of every step of scenario for visitor
+     *
+     * @param visitor object visiting steps
+     */
+    public void acceptCounting(VisitorForCounting visitor) {
+        for (Step step : steps) {
             step.acceptCounting(visitor);
         }
     }
 
-    public String getTitle() {
+    /**
+     * Displays titleOfScenario
+     * Accept counting of every every step of scenario
+     *
+     * @param visitor object visiting steps
+     */
+    public void acceptDisplaying(VisitorForDisplaying visitor) {
+        if (visitor instanceof DisplayingScenario)
+            ((DisplayingScenario) visitor).setScenarioText(this.titleOfScenario + "</br></br>");
+        for (Step step : steps) {
+            step.acceptDisplaying(visitor, "", 0);
+        }
+    }
+
+    public String getTitleOfScenario() {
         return titleOfScenario;
+    }
+
+    public void setTitleOfScenario(String titleOfScenario) {
+        this.titleOfScenario = titleOfScenario;
     }
 
     public ArrayList<String> getActors() {
         return actors;
     }
 
-    public ArrayList<String> getSysactors() {
-        return systemActors;
-    }
-
-    public ArrayList<Step> getSteps() {
-        return steps;
-    }
-
-    public void setTitle(String title) {
-        this.titleOfScenario = title;
-    }
-
     public void setActors(ArrayList<String> actors) {
         this.actors = actors;
     }
 
-    public void setSysactors(ArrayList<String> sysactors) {
-        this.systemActors = sysactors;
+    public ArrayList<String> getSystemActors() {
+        return systemActors;
+    }
+
+    public void setSystemActors(ArrayList<String> systemActors) {
+        this.systemActors = systemActors;
+    }
+
+    public ArrayList<Step> getSteps() {
+        return steps;
     }
 
     public void setSteps(ArrayList<Step> steps) {
