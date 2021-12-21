@@ -1,5 +1,5 @@
 {
-  "titleOfScenario": "Rezerwowanie obiektu centrum sportowego",
+  "titleOfScenario": "Test",
   "actors": [
     "klient"
   ],
@@ -11,7 +11,7 @@
       "numberOfStep": 1,
       "actor": "klient",
       "rule": [
-        "Klient wybiera obiekt sportowy"
+        "Klient robi a"
       ],
       "subStep": [],
       "deepPath": []
@@ -21,14 +21,14 @@
       "actor": "",
       "rule": [
         "IF",
-        "Klient chce dodać rezerwację"
+        "Klient robi 2"
       ],
       "subStep": [
         {
           "numberOfStep": 1,
           "actor": "klient",
           "rule": [
-            "Klient wybiera opcję dodania rezerwacji"
+            "Klient sie smieje"
           ],
           "subStep": [],
           "deepPath": []
@@ -37,124 +37,9 @@
           "numberOfStep": 2,
           "actor": "system",
           "rule": [
-            "System prezentuje aktualny stan rezerwacji"
+            "System czyta"
           ],
           "subStep": [],
-          "deepPath": []
-        }
-      ],
-      "deepPath": []
-    },
-    {
-      "numberOfStep": 3,
-      "actor": "",
-      "rule": [
-        "FOR EACH",
-        "Rezerwacja"
-      ],
-      "subStep": [
-        {
-          "numberOfStep": 1,
-          "actor": "system",
-          "rule": [
-            "System prosi o podanie terminu rezerwacji"
-          ],
-          "subStep": [],
-          "deepPath": []
-        },
-        {
-          "numberOfStep": 2,
-          "actor": "klient",
-          "rule": [
-            "IF",
-            "Termin wolny"
-          ],
-          "subStep": [
-            {
-              "numberOfStep": 1,
-              "actor": "system",
-              "rule": [
-                "System informuje o dostępności terminu i pyta czy dodać rezerwację"
-              ],
-              "subStep": [],
-              "deepPath": []
-            },
-            {
-              "numberOfStep": 2,
-              "actor": "",
-              "rule": [
-                "IF",
-                "Klient chce dodać rezerwację"
-              ],
-              "subStep": [
-                {
-                  "numberOfStep": 1,
-                  "actor": "system",
-                  "rule": [
-                    "System informuje o poprawnym dodaniu rezerwacji"
-                  ],
-                  "subStep": [],
-                  "deepPath": []
-                },
-                {
-                  "numberOfStep": 2,
-                  "actor": "system",
-                  "rule": [
-                    "System prezentuje zaktualizowany stan rezerwacji"
-                  ],
-                  "subStep": [],
-                  "deepPath": []
-                }
-              ],
-              "deepPath": []
-            },
-            {
-              "numberOfStep": 3,
-              "actor": "",
-              "rule": [
-                "ELSE"
-              ],
-              "subStep": [
-                {
-                  "numberOfStep": 1,
-                  "actor": "system",
-                  "rule": [
-                    "System informuje o niepowodzeniu w dodawaniu rezerwacji"
-                  ],
-                  "subStep": [],
-                  "deepPath": [
-                    3,
-                    1
-                  ]
-                }
-              ],
-              "deepPath": []
-            }
-          ],
-          "deepPath": []
-        },
-        {
-          "numberOfStep": 3,
-          "actor": "",
-          "rule": [
-            "ELSE",
-            "System podaje informację o niedostępności obiektu i prosi o podanie innego terminu/rezygnację"
-          ],
-          "subStep": [
-            {
-              "numberOfStep": 1,
-              "actor": "klient",
-              "rule": [
-                "IF",
-                "Podanie innego terminu"
-              ],
-              "subStep": [],
-              "deepPath": [
-                3,
-                1
-              ]
-            }
-          ],
           "deepPath": []
         }
       ],

@@ -1,22 +1,14 @@
 package pl.put.poznan.scenarioQualityChecker.logic;
 
-
 import pl.put.poznan.scenarioQualityChecker.model.Step;
 
 /**
- * DisplayingDepthLevel --- program shows steps and substeps of scenario
- * to certain scenario level defined by desiredLevel
+ * DisplayingStepsWithoutActors  --- program to show steps (sub-steps also) which doesn't have Actor
  *
- * @author Dariusz Karolewski
+ * @author Wiktor Jankowski
  */
-
-public class DisplayingDepthLevel extends VisitorForDisplaying {
-    private String scenarioText = ""; // displayed text after reading .JSON to certain level
-    private int desiredLevel = 0; // define to which level scenario will be displayed
-
-    public DisplayingDepthLevel(int desiredLevel) {
-        this.desiredLevel = desiredLevel;
-    }
+public class DisplayingStepsWithoutActors extends VisitorForDisplaying {
+    private String scenarioText = ""; // displayed text after reading .JSON
 
     public String getScenarioText() {
         return scenarioText;
@@ -26,21 +18,8 @@ public class DisplayingDepthLevel extends VisitorForDisplaying {
         this.scenarioText = scenarioText;
     }
 
-    public int getDesiredLevel() {
-        return desiredLevel;
-    }
-
-    public void setDesiredLevel(int desiredLevel) {
-        this.desiredLevel = desiredLevel;
-    }
-
-
     /**
-     * Displays scenario passed by .JSON to certain level of scenario defined as desiredLevel
-     * Level of scenario is defined by nesting of subSteps, e.g.
-     * original steps of scenario - level 1
-     * sub steps of original steps - level 2
-     * sub steps of sub steps - level 3
+     * Displays steps of scenario passed by .JSON which doesn't have actors
      * Iterates through steps when invoked by AcceptDisplaying - method from Step class
      *
      * @param step      visited step
@@ -49,7 +28,7 @@ public class DisplayingDepthLevel extends VisitorForDisplaying {
      */
     @Override
     public void display(Step step, String parentNum, int level) {
-        if (level < desiredLevel) {
+        if (!isActor(step)) {
             for (int i = 0; i < level; i++)
                 scenarioText += "- - ";
             scenarioText += parentNum + " ";
@@ -59,13 +38,25 @@ public class DisplayingDepthLevel extends VisitorForDisplaying {
         }
     }
 
-
     /**
      * Reset scenarioText after success displaying
      */
     @Override
     public void afterDisplaying() {
         scenarioText = "";
-        desiredLevel = 0;
     }
+
+    /**
+     * Method check if list of Actors is empty
+     *
+     * @param step visited step
+     * @return true if any Actor is present and false otherwise
+     */
+    private boolean isActor(Step step) {
+        if (!step.getActor().equals(""))
+            return true;
+
+        return false;
+    }
+
 }

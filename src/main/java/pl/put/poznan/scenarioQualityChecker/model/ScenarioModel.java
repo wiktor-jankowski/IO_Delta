@@ -1,10 +1,16 @@
 package pl.put.poznan.scenarioQualityChecker.model;
 
 import java.util.ArrayList;
+
 import pl.put.poznan.scenarioQualityChecker.logic.VisitorForCounting;
 import pl.put.poznan.scenarioQualityChecker.logic.VisitorForDisplaying;
 import pl.put.poznan.scenarioQualityChecker.logic.DisplayingScenario;
 
+/**
+ * Class which implements scenario object read from .JSON file
+ *
+ * @author Radoslaw Dudek
+ */
 
 public class ScenarioModel {
     private String titleOfScenario;
@@ -12,26 +18,33 @@ public class ScenarioModel {
     private ArrayList<String> systemActors;
     private ArrayList<Step> steps;
 
-    public ScenarioModel() {}
+    public ScenarioModel() {
+    }
 
-    public void acceptCounting(VisitorForCounting visitor)
-    {
-        for(Step step : steps)
-        {
+    /**
+     * Accept counting of every step of scenario for visitor
+     *
+     * @param visitor object visiting steps
+     */
+    public void acceptCounting(VisitorForCounting visitor) {
+        for (Step step : steps) {
             step.acceptCounting(visitor);
         }
     }
 
-    public void acceptDisplaying(VisitorForDisplaying visitor)
-    {
-        if(visitor instanceof DisplayingScenario)
-            ((DisplayingScenario)visitor).setScenarioText(this.titleOfScenario + "</br></br>");
-        for(Step step : steps)
-        {
+    /**
+     * Displays titleOfScenario
+     * Accept counting of every every step of scenario
+     *
+     * @param visitor object visiting steps
+     */
+    public void acceptDisplaying(VisitorForDisplaying visitor) {
+        if (visitor instanceof DisplayingScenario)
+            ((DisplayingScenario) visitor).setScenarioText(this.titleOfScenario + "</br></br>");
+        for (Step step : steps) {
             step.acceptDisplaying(visitor, "", 0);
         }
     }
-
 
     public String getTitleOfScenario() {
         return titleOfScenario;

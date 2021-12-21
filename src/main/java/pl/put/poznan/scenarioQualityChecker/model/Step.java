@@ -2,11 +2,16 @@ package pl.put.poznan.scenarioQualityChecker.model;
 
 
 import java.util.ArrayList;
+
 import pl.put.poznan.scenarioQualityChecker.logic.VisitorForCounting;
 import pl.put.poznan.scenarioQualityChecker.logic.VisitorForDisplaying;
 
-//Basic implementation of steps of scenario
 
+/**
+ * Class which implements step object of scenario
+ *
+ * @author Radosław Dudek
+ */
 public class Step {
     private Integer numberOfStep;
     private String actor;
@@ -14,21 +19,30 @@ public class Step {
     private ArrayList<Step> subStep;
     private ArrayList<Integer> deepPath;
 
-    public Step() {}
+    public Step() {
+    }
 
-    public void acceptCounting(VisitorForCounting visitor)
-    {
+    /**
+     * Accept counting of every step of scenario for visitor
+     *
+     * @param visitor object visiting steps
+     */
+    public void acceptCounting(VisitorForCounting visitor) {
         visitor.count(this);
-        if(!this.subStep.isEmpty())
-            for(Step step : subStep)
+        if (!this.subStep.isEmpty())
+            for (Step step : subStep)
                 step.acceptCounting(visitor);
     }
 
-    public void acceptDisplaying(VisitorForDisplaying visitor, String num, int level)
-    {
+    /**
+     * Accept displaying of every step of scenario for visitor
+     *
+     * @param visitor object visiting steps
+     */
+    public void acceptDisplaying(VisitorForDisplaying visitor, String num, int level) {
         num += this.numberOfStep + ".";
         visitor.display(this, num, level);
-        if(!this.subStep.isEmpty()) {
+        if (!this.subStep.isEmpty()) {
             level++;
             for (Step step : subStep)
                 step.acceptDisplaying(visitor, num, level);
