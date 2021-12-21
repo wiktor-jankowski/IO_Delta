@@ -31,7 +31,7 @@ Aktor systemowy: System
 
 Odpalanie programu w PowerShellu: 
 ```
-mvn clean sprint-boot:run
+mvn clean spring-boot:run
 ```
 
 Generowanie samych javaDoców:
