@@ -46,3 +46,8 @@ mvn clean package
 ```
 Pliki javaDoc znajdują się w: IO_DELTA/target/site/apidocs
 
+
+
+Przykładowa konfiguracja pozwalająca na testowanie Resta w narzedziu Postman: 
+![plot](postman.png)
+
